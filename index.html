@@ -8,32 +8,55 @@
       background-color: #000; /* Black background */
       color: #fff; /* White text */
       font-family: Arial, sans-serif;
-      margin: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
-    h1, h2 {
-      color: #fff; /* White headings */
+    .container {
+      max-width: 800px;
+      padding: 30px;
+      background: #111; /* Dark card */
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+    h1 {
+      text-align: center;
+      color: #1e90ff; /* Professional blue */
+    }
+    h2 {
+      margin-top: 30px;
+      color: #1e90ff;
+    }
+    p {
+      line-height: 1.6;
     }
     a {
       color: #1e90ff; /* Blue links */
       text-decoration: none;
+      font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
     }
     ul {
-      list-style-type: square;
+      list-style-type: disc;
+      margin-left: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to BugBountyPOC Labs 🚀</h1>
-  <p>Practice XSS Context Breaking, Business Logic Bugs, and More!</p>
-  <p>Visit my <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube Channel</a> for tutorials.</p>
+  <div class="container">
+    <h1>Welcome to BugBountyPOC Labs 🚀</h1>
+    <p>Practice XSS Context Breaking, Business Logic Bugs, and More!</p>
+    <p>Visit my <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube Channel</a> for tutorials.</p>
 
-  <h2>Labs Directory</h2>
-  <ul>
-    <li><a href="labs/xss-context-reflection/index.html">XSS Context Reflection</a></li>
-    <li><a href="labs/business-logic/">Business Logic Labs (Coming Soon)</a></li>
-  </ul>
+    <h2>Labs Directory</h2>
+    <ul>
+      <li><a href="labs/xss-context-reflection/index.html">XSS Context Reflection</a></li>
+      <li><a href="labs/business-logic/">Business Logic Labs (Coming Soon)</a></li>
+    </ul>
+  </div>
 </body>
 </html>
