@@ -2,28 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bug Bounty POC Labs</title>
   <style>
     body {
-      background-color: #000; /* Black background */
-      color: #fff; /* White text */
+      background-color: #000;
+      color: #fff;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
       margin: 0;
     }
+    /* Navigation bar */
+    nav {
+      background: #111;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #1e90ff;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      color: #1e90ff;
+    }
+
+    /* Main container */
     .container {
-      max-width: 800px;
+      max-width: 900px;
+      margin: 40px auto;
       padding: 30px;
-      background: #111; /* Dark card */
+      background: #111;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
     h1 {
       text-align: center;
-      color: #1e90ff; /* Professional blue */
+      color: #1e90ff;
     }
     h2 {
       margin-top: 30px;
@@ -33,7 +61,7 @@
       line-height: 1.6;
     }
     a {
-      color: #1e90ff; /* Blue links */
+      color: #1e90ff;
       text-decoration: none;
       font-weight: bold;
     }
@@ -44,15 +72,56 @@
       list-style-type: disc;
       margin-left: 20px;
     }
+
+    /* Call-to-action button */
+    .btn {
+      display: inline-block;
+      background: #1e90ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #0a74d6;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">BugBountyPOC</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube</a></li>
+      <li><a href="mailto:youremail@example.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
   <div class="container">
     <h1>Welcome to BugBountyPOC Labs 🚀</h1>
     <p>Practice XSS Context Breaking, Business Logic Bugs, and More!</p>
-    <p>Visit my <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube Channel</a> for tutorials.</p>
+    <p>Follow my tutorials on YouTube to learn ethical hacking and bug bounty step by step.</p>
+    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="btn">📺 Visit YouTube Channel</a>
 
-    <h2>Labs Directory</h2>
+    <h2 id="labs">Labs Directory</h2>
     <ul>
       <li><a href="labs/xss-context-reflection/index.html">XSS Context Reflection</a></li>
       <li><a href="labs/business-logic/">Business Logic Labs (Coming Soon)</a></li>
