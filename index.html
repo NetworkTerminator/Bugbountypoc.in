@@ -46,17 +46,13 @@
       transition: background 0.2s;
     }
     nav ul li a:hover {
-      background-color: #e0e0e0;
+      background-color: #e0e0e0; /* subtle hover for all links */
     }
-    .btn-labs {
-      background-color: #111;
-      color: #fff;
-      padding: 7px 15px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-    .btn-labs:hover {
-      background-color: #333;
+    /* Labs button same as other links */
+    nav ul li a.btn-labs {
+      background: transparent;
+      color: #111;
+      padding: 6px 12px;
     }
 
     /* Intro Section */
@@ -199,16 +195,30 @@
     <h2>Labs Directory</h2>
     <div class="lab-grid">
       <div class="lab-card">
-        <h3>XSS Context Reflection</h3>
-        <p>Learn how to identify and exploit XSS by breaking HTML/JS contexts.</p>
+        <h3>XSS - HTML Content Context</h3>
+        <p>Learn to exploit XSS within standard HTML content.</p>
         <span class="tag">Easy</span>
       </div>
       <div class="lab-card">
+        <h3>XSS - HTML Attribute Context</h3>
+        <p>Practice breaking out of HTML attributes to execute scripts.</p>
+        <span class="tag">Medium</span>
+      </div>
+      <div class="lab-card">
+        <h3>XSS - JavaScript Context</h3>
+        <p>Understand how to inject payloads inside JS code.</p>
+        <span class="tag">Medium</span>
+      </div>
+      <div class="lab-card">
+        <h3>XSS - URL / DOM Context</h3>
+        <p>Explore DOM-based and URL-based XSS scenarios.</p>
+        <span class="tag">Hard</span>
+      </div>
+      <div class="lab-card">
         <h3>Business Logic Labs</h3>
-        <p>Understand business logic flaws and how to exploit them.</p>
+        <p>Identify and exploit flaws in business logic.</p>
         <span class="tag">Coming Soon</span>
       </div>
-      <!-- Add more labs here -->
     </div>
   </section>
 
