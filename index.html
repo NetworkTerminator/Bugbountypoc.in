@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bug Bounty POC Labs</title>
+  <title>BugBountyPOC Labs</title>
   <style>
     /* Basic Reset */
     body {
-      background-color: #fff; /* White background */
-      color: #111;           /* Dark text for readability */
-      font-family: 'Arial', sans-serif;
       margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+      color: #111;
     }
 
-    /* Navigation bar */
+    /* Navigation */
     nav {
-      background: #f8f8f8; /* Light gray nav */
-      padding: 12px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd; /* Subtle line */
+      padding: 12px 30px;
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #ddd;
       position: sticky;
       top: 0;
       z-index: 100;
     }
     nav .logo {
-      font-size: 1.3rem;
       font-weight: bold;
-      color: #000;
+      font-size: 1.3rem;
+      color: #111;
     }
     nav ul {
       list-style: none;
@@ -36,74 +36,125 @@
       gap: 15px;
       margin: 0;
       padding: 0;
-      align-items: center;
     }
     nav ul li a {
-      color: #111;
       text-decoration: none;
+      color: #111;
       font-weight: 500;
       padding: 6px 12px;
       border-radius: 4px;
       transition: background 0.2s;
     }
     nav ul li a:hover {
-      background: #e0e0e0; /* subtle hover */
+      background-color: #e0e0e0;
     }
-
-    /* Labs Button Highlight */
     .btn-labs {
-      background: #111; /* Dark button */
+      background-color: #111;
       color: #fff;
       padding: 7px 15px;
       border-radius: 4px;
       font-weight: 500;
     }
     .btn-labs:hover {
-      background: #333; /* slightly lighter on hover */
+      background-color: #333;
     }
 
-    /* Main container */
-    .container {
+    /* Intro Section */
+    .intro {
       max-width: 900px;
       margin: 40px auto;
-      padding: 30px;
-      background: #fafafa; /* very light gray */
+      text-align: center;
+      padding: 0 20px;
+    }
+    .intro h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .intro p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .intro .youtube-btn {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .intro .youtube-btn:hover {
+      background-color: #333;
+    }
+
+    /* Labs Section */
+    #labs {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    #labs h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .lab-card {
+      background-color: #fafafa;
+      border: 1px solid #eee;
       border-radius: 8px;
-      border: 1px solid #eee; /* subtle border */
+      padding: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    /* Headings */
-    h1, h2 {
+    .lab-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .lab-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .lab-card p {
+      font-size: 0.95rem;
+      margin: 5px 0;
+    }
+    .lab-card .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      border-radius: 3px;
+      background-color: #ddd;
       color: #111;
-      text-align: center;
-      margin: 20px 0;
-      font-weight: 600;
+      margin-top: 10px;
     }
 
-    /* Paragraphs */
-    p {
-      line-height: 1.6;
+    /* YouTube Section */
+    .youtube-section {
+      max-width: 900px;
+      margin: 40px auto;
       text-align: center;
-      margin: 10px 0;
+      padding: 0 20px;
     }
-
-    /* Links */
-    a {
-      color: #111;
+    .youtube-section h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .youtube-section a {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
     }
-    a:hover {
-      color: #555;
-      text-decoration: underline;
-    }
-
-    /* Lists */
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      padding-left: 0;
+    .youtube-section a:hover {
+      background-color: #333;
     }
 
     /* Mobile responsive */
@@ -116,6 +167,9 @@
         flex-direction: column;
         gap: 10px;
         margin-top: 10px;
+      }
+      .lab-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -133,21 +187,36 @@
     </ul>
   </nav>
 
-  <!-- Main content -->
-  <div class="container">
+  <!-- Intro Section -->
+  <section class="intro">
     <h1>Welcome to BugBountyPOC Labs 🚀</h1>
-    <p>Practice XSS Context Breaking, Business Logic Bugs, and More!</p>
-    <p>Follow my tutorials on YouTube to learn ethical hacking and bug bounty step by step.</p>
-    <div style="text-align:center; margin-top:20px;">
-      <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="btn-labs">📺 Visit YouTube Channel</a>
-    </div>
+    <p>Practice XSS, Business Logic Bugs, and more while following step-by-step tutorials!</p>
+    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="youtube-btn">📺 Visit YouTube Channel</a>
+  </section>
 
-    <h2 id="labs">Labs Directory</h2>
-    <ul>
-      <li><a href="labs/xss-context-reflection/index.html">XSS Context Reflection</a></li>
-      <li><a href="labs/business-logic/">Business Logic Labs (Coming Soon)</a></li>
-    </ul>
-  </div>
+  <!-- Labs Section -->
+  <section id="labs">
+    <h2>Labs Directory</h2>
+    <div class="lab-grid">
+      <div class="lab-card">
+        <h3>XSS Context Reflection</h3>
+        <p>Learn how to identify and exploit XSS by breaking HTML/JS contexts.</p>
+        <span class="tag">Easy</span>
+      </div>
+      <div class="lab-card">
+        <h3>Business Logic Labs</h3>
+        <p>Understand business logic flaws and how to exploit them.</p>
+        <span class="tag">Coming Soon</span>
+      </div>
+      <!-- Add more labs here -->
+    </div>
+  </section>
+
+  <!-- YouTube / Tutorials Section -->
+  <section class="youtube-section">
+    <h2>Follow Step-by-Step Tutorials on YouTube</h2>
+    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">📺 Visit YouTube Channel</a>
+  </section>
 
 </body>
 </html>
