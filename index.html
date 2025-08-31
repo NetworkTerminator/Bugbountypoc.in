@@ -15,7 +15,8 @@
   /* Navigation */
   nav {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: center;
     padding: 12px 30px;
     background-color: #f8f8f8;
@@ -28,51 +29,26 @@
     font-weight: bold;
     font-size: 1.3rem;
     color: #111;
+    margin-right: 20px;
   }
   nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 12px;
     margin: 0;
     padding: 0;
-  }
-  nav ul li {
-    position: relative;
   }
   nav ul li a {
     text-decoration: none;
     color: #111;
     font-weight: 500;
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 4px;
     transition: background 0.2s;
+    white-space: nowrap;
   }
   nav ul li a:hover {
-    background-color: #e0e0e0;
-  }
-
-  /* Dropdown */
-  nav ul li ul.dropdown {
-    display: none;
-    position: absolute;
-    top: 35px;
-    left: 0;
-    background: #f8f8f8;
-    border: 1px solid #ddd;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    min-width: 200px;
-    z-index: 100;
-  }
-  nav ul li:hover ul.dropdown {
-    display: block;
-  }
-  nav ul li ul.dropdown li a {
-    display: block;
-    padding: 8px 12px;
-  }
-  nav ul li ul.dropdown li a:hover {
     background-color: #e0e0e0;
   }
 
@@ -139,21 +115,15 @@
   }
 
   /* Mobile responsive */
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     nav {
       flex-direction: column;
       align-items: flex-start;
     }
     nav ul {
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
       margin-top: 10px;
-    }
-    nav ul li ul.dropdown {
-      position: relative;
-      top: 0;
-      left: 0;
-      border: none;
     }
   }
 </style>
@@ -165,16 +135,11 @@
   <div class="logo">BugBountyPOC</div>
   <ul>
     <li><a href="#">Home</a></li>
-    <li>
-      <a href="#">Labs ▾</a>
-      <ul class="dropdown">
-        <li><a href="labs/xss-context-reflection/index.html">XSS - HTML Content</a></li>
-        <li><a href="labs/xss-attribute-context/index.html">XSS - Attribute</a></li>
-        <li><a href="labs/xss-js-context/index.html">XSS - JavaScript</a></li>
-        <li><a href="labs/xss-dom-context/index.html">XSS - DOM / URL</a></li>
-        <li><a href="labs/business-logic/index.html">Business Logic</a></li>
-      </ul>
-    </li>
+    <li><a href="labs/xss-context-reflection/index.html">XSS - HTML Content</a></li>
+    <li><a href="labs/xss-attribute-context/index.html">XSS - Attribute</a></li>
+    <li><a href="labs/xss-js-context/index.html">XSS - JavaScript</a></li>
+    <li><a href="labs/xss-dom-context/index.html">XSS - DOM / URL</a></li>
+    <li><a href="labs/business-logic/index.html">Business Logic</a></li>
     <li><a href="mailto:youremail@example.com">Contact</a></li>
     <li><a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube</a></li>
   </ul>
