@@ -77,6 +77,39 @@
     background-color: #333;
   }
 
+  /* About Section */
+  .about, .benefits, .cta {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .about h2, .benefits h2, .cta h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  .about p, .benefits ul, .cta p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .benefits ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .benefits ul li {
+    margin: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .benefits ul li:before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+  }
+
   /* YouTube Section */
   .youtube-section {
     max-width: 900px;
@@ -133,6 +166,38 @@
   <h1>Welcome to BugBountyPOC Labs 🚀</h1>
   <p>Practice XSS, Business Logic Bugs, and more while following step-by-step tutorials!</p>
   <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="youtube-btn">📺 Visit YouTube Channel</a>
+</section>
+
+<!-- About Section -->
+<section class="about">
+  <h2>About BugBountyPOC</h2>
+  <p>BugBountyPOC is a hands-on lab platform for aspiring bug bounty hunters and cybersecurity enthusiasts. 
+     Learn and practice XSS, business logic bugs, and more through safe, interactive labs designed for beginners and professionals alike.</p>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits">
+  <h2>Why Practice Here?</h2>
+  <ul>
+    <li>Hands-on learning with real-life scenarios</li>
+    <li>Safe environment to test XSS and logic bugs</li>
+    <li>Step-by-step tutorials linked to YouTube</li>
+    <li>Build skills for bug bounty programs</li>
+  </ul>
+</section>
+
+<!-- YouTube Section -->
+<section class="youtube-section">
+  <h2>Latest Tutorials</h2>
+  <p>Follow step-by-step tutorials to master bug hunting and XSS exploitation.</p>
+  <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="youtube-btn">📺 Visit YouTube Channel</a>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="cta">
+  <h2>Start Practicing Labs</h2>
+  <p>All labs are available in the <strong>labs</strong> directory. Click below to jump straight into hands-on practice:</p>
+  <a href="labs/xss-context-reflection/index.html" class="youtube-btn" target="_blank">▶ Open Labs Directory</a>
 </section>
 
 </body>
