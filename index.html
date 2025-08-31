@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bug Bounty POC Labs</title>
   <style>
+    /* Basic Reset */
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
+      background-color: #fff; /* White background */
+      color: #000;           /* Black text */
+      font-family: 'Arial', sans-serif;
       margin: 0;
     }
+
     /* Navigation bar */
     nav {
-      background: #111;
+      background: #f8f8f8;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav .logo {
       font-size: 1.2rem;
@@ -26,18 +32,35 @@
     }
     nav ul {
       list-style: none;
+      display: flex;
+      gap: 15px;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 20px;
+      align-items: center;
     }
     nav ul li a {
-      color: #fff;
+      color: #000;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
     }
     nav ul li a:hover {
-      color: #1e90ff;
+      background: #1e90ff;
+      color: #fff;
+      transition: 0.3s;
+    }
+    /* Labs Button Highlight */
+    .btn-labs {
+      background: #1e90ff;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .btn-labs:hover {
+      background: #0a74d6;
+      transition: 0.3s;
     }
 
     /* Main container */
@@ -45,9 +68,9 @@
       max-width: 900px;
       margin: 40px auto;
       padding: 30px;
-      background: #111;
+      background: #f1f1f1;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
     h1 {
       text-align: center;
@@ -73,21 +96,6 @@
       margin-left: 20px;
     }
 
-    /* Call-to-action button */
-    .btn {
-      display: inline-block;
-      background: #1e90ff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .btn:hover {
-      background: #0a74d6;
-    }
-
     /* Mobile responsive */
     @media (max-width: 600px) {
       nav {
@@ -103,12 +111,13 @@
   </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <nav>
     <div class="logo">BugBountyPOC</div>
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="#labs">Labs</a></li>
+      <li><a href="#labs" class="btn-labs">Labs</a></li>
       <li><a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube</a></li>
       <li><a href="mailto:youremail@example.com">Contact</a></li>
     </ul>
@@ -119,7 +128,7 @@
     <h1>Welcome to BugBountyPOC Labs 🚀</h1>
     <p>Practice XSS Context Breaking, Business Logic Bugs, and More!</p>
     <p>Follow my tutorials on YouTube to learn ethical hacking and bug bounty step by step.</p>
-    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="btn">📺 Visit YouTube Channel</a>
+    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="btn-labs">📺 Visit YouTube Channel</a>
 
     <h2 id="labs">Labs Directory</h2>
     <ul>
@@ -127,5 +136,6 @@
       <li><a href="labs/business-logic/">Business Logic Labs (Coming Soon)</a></li>
     </ul>
   </div>
+
 </body>
 </html>
