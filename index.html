@@ -1,250 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BugBountyPOC Labs</title>
-  <style>
-    /* Basic Reset */
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #fff;
-      color: #111;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BugBountyPOC Labs</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #111;
+  }
 
-    /* Navigation */
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .logo {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #111;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  nav ul li a:hover {
+    background-color: #e0e0e0;
+  }
+
+  /* Intro Section */
+  .intro {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .intro h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .intro p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .intro .youtube-btn {
+    display: inline-block;
+    background-color: #111;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .intro .youtube-btn:hover {
+    background-color: #333;
+  }
+
+  /* YouTube Section */
+  .youtube-section {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .youtube-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  .youtube-section a {
+    display: inline-block;
+    background-color: #111;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .youtube-section a:hover {
+    background-color: #333;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 600px) {
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 30px;
-      background-color: #f8f8f8;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.3rem;
-      color: #111;
+      flex-direction: column;
+      align-items: flex-start;
     }
     nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-      margin: 0;
-      padding: 0;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
     }
-    nav ul li a {
-      text-decoration: none;
-      color: #111;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    nav ul li a:hover {
-      background-color: #e0e0e0;
-    }
-    nav ul li a.btn-labs {
-      background: transparent;
-      color: #111;
-      padding: 6px 12px;
-    }
-
-    /* Intro Section */
-    .intro {
-      max-width: 900px;
-      margin: 40px auto;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .intro h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .intro p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-    .intro .youtube-btn {
-      display: inline-block;
-      background-color: #111;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 4px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .intro .youtube-btn:hover {
-      background-color: #333;
-    }
-
-    /* Labs Section */
-    #labs {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    #labs h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.8rem;
-    }
-    .lab-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .lab-card {
-      background-color: #fafafa;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      padding: 20px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .lab-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .lab-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-    .lab-card p {
-      font-size: 0.95rem;
-      margin: 5px 0 10px 0;
-    }
-    .lab-card .tag {
-      display: inline-block;
-      padding: 3px 8px;
-      font-size: 0.75rem;
-      border-radius: 3px;
-      background-color: #ddd;
-      color: #111;
-      margin-bottom: 10px;
-    }
-    .lab-card a {
-      display: inline-block;
-      padding: 6px 12px;
-      background-color: #111;
-      color: #fff;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .lab-card a:hover {
-      background-color: #333;
-    }
-
-    /* YouTube Section */
-    .youtube-section {
-      max-width: 900px;
-      margin: 40px auto;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .youtube-section h2 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-    .youtube-section a {
-      display: inline-block;
-      background-color: #111;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .youtube-section a:hover {
-      background-color: #333;
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
-      .lab-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">BugBountyPOC</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#labs" class="btn-labs">Labs</a></li>
-      <li><a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube</a></li>
-      <li><a href="mailto:youremail@example.com">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Navigation -->
+<nav>
+  <div class="logo">BugBountyPOC</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="mailto:youremail@example.com">Contact</a></li>
+    <li><a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube</a></li>
+  </ul>
+</nav>
 
-  <!-- Intro Section -->
-  <section class="intro">
-    <h1>Welcome to BugBountyPOC Labs 🚀</h1>
-    <p>Practice XSS, Business Logic Bugs, and more while following step-by-step tutorials!</p>
-    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="youtube-btn">📺 Visit YouTube Channel</a>
-  </section>
-
-  <!-- Labs Section -->
-  <section id="labs">
-    <h2>Labs Directory</h2>
-    <div class="lab-grid">
-      <div class="lab-card">
-        <h3>XSS - HTML Content Context</h3>
-        <p>Learn to exploit XSS within standard HTML content.</p>
-        <span class="tag">Easy</span><br>
-        <a href="labs/xss-context-reflection/index.html" target="_blank">▶ Open Lab</a>
-      </div>
-      <div class="lab-card">
-        <h3>XSS - HTML Attribute Context</h3>
-        <p>Practice breaking out of HTML attributes to execute scripts.</p>
-        <span class="tag">Medium</span><br>
-        <a href="labs/xss-attribute-context/index.html" target="_blank">▶ Open Lab</a>
-      </div>
-      <div class="lab-card">
-        <h3>XSS - JavaScript Context</h3>
-        <p>Understand how to inject payloads inside JS code.</p>
-        <span class="tag">Medium</span><br>
-        <a href="labs/xss-js-context/index.html" target="_blank">▶ Open Lab</a>
-      </div>
-      <div class="lab-card">
-        <h3>XSS - URL / DOM Context</h3>
-        <p>Explore DOM-based and URL-based XSS scenarios.</p>
-        <span class="tag">Hard</span><br>
-        <a href="labs/xss-dom-context/index.html" target="_blank">▶ Open Lab</a>
-      </div>
-      <div class="lab-card">
-        <h3>Business Logic Labs</h3>
-        <p>Identify and exploit flaws in business logic.</p>
-        <span class="tag">Coming Soon</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- YouTube / Tutorials Section -->
-  <section class="youtube-section">
-    <h2>Follow Step-by-Step Tutorials on YouTube</h2>
-    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">📺 Visit YouTube Channel</a>
-  </section>
+<!-- Intro Section -->
+<section class="intro">
+  <h1>Welcome to BugBountyPOC Labs 🚀</h1>
+  <p>Practice XSS, Business Logic Bugs, and more while following step-by-step tutorials!</p>
+  <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="youtube-btn">📺 Visit YouTube Channel</a>
+</section>
 
 </body>
 </html>
