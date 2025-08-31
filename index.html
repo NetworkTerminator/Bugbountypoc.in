@@ -15,7 +15,7 @@
   /* Navigation */
   nav {
     display: flex;
-    justify-content: space-between; /* logo left, links right */
+    justify-content: space-between;
     align-items: center;
     padding: 12px 30px;
     background-color: #f8f8f8;
@@ -89,10 +89,12 @@
     font-size: 1.8rem;
     margin-bottom: 15px;
   }
-  section p, section ul {
+  section p {
     font-size: 1rem;
     line-height: 1.5;
   }
+
+  /* Benefits Section */
   .benefits ul {
     list-style: none;
     padding: 0;
@@ -101,14 +103,15 @@
     margin: 0 auto;
   }
   .benefits ul li {
+    display: flex;             /* Flexbox for perfect alignment */
+    align-items: flex-start;   /* Align tick with first line of text */
+    gap: 10px;                 /* Space between tick and text */
     margin: 8px 0;
-    padding-left: 20px;
-    position: relative;
   }
-  .benefits ul li:before {
-    content: "✅";
-    position: absolute;
-    left: 0;
+  .benefits ul li span.tick {
+    flex-shrink: 0;            /* Prevent tick from shrinking */
+    font-size: 1.2em;
+    line-height: 1.2;
   }
 
   /* Mobile responsive */
@@ -156,10 +159,10 @@
 <section class="benefits">
   <h2>Why Practice Here?</h2>
   <ul>
-    <li> Hands-on learning with real-life scenarios</li>
-    <li> Safe environment to test XSS and logic bugs</li>
-    <li> Step-by-step tutorials linked to YouTube</li>
-    <li> Build skills for bug bounty programs</li>
+    <li><span class="tick">✅</span> Hands-on learning with real-life scenarios</li>
+    <li><span class="tick">✅</span> Safe environment to test XSS and logic bugs</li>
+    <li><span class="tick">✅</span> Step-by-step tutorials linked to YouTube</li>
+    <li><span class="tick">✅</span> Build skills for bug bounty programs</li>
   </ul>
 </section>
 
