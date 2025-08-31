@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bug Bounty POC Labs</title>
   <style>
+    /* Root colors */
+    :root {
+      --accent-color: #0b3d91; /* Dark Navy */
+      --accent-hover: #07306b;  /* Hover for buttons/links */
+      --container-bg: #fafafa;  /* Light gray container */
+    }
+
     /* Basic Reset */
     body {
       background-color: #fff; /* White background */
@@ -28,7 +35,7 @@
     nav .logo {
       font-size: 1.2rem;
       font-weight: bold;
-      color: #1e90ff;
+      color: var(--accent-color);
     }
     nav ul {
       list-style: none;
@@ -44,23 +51,24 @@
       font-weight: bold;
       padding: 8px 12px;
       border-radius: 5px;
-    }
-    nav ul li a:hover {
-      background: #1e90ff;
-      color: #fff;
       transition: 0.3s;
     }
+    nav ul li a:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
     /* Labs Button Highlight */
     .btn-labs {
-      background: #1e90ff;
+      background: var(--accent-color);
       color: #fff;
       padding: 8px 15px;
       border-radius: 5px;
       font-weight: bold;
+      transition: 0.3s;
     }
     .btn-labs:hover {
-      background: #0a74d6;
-      transition: 0.3s;
+      background: var(--accent-hover);
     }
 
     /* Main container */
@@ -68,29 +76,38 @@
       max-width: 900px;
       margin: 40px auto;
       padding: 30px;
-      background: #f1f1f1;
+      background: var(--container-bg);
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
-    h1 {
+
+    /* Headings */
+    h1, h2 {
+      color: var(--accent-color);
       text-align: center;
-      color: #1e90ff;
     }
     h2 {
       margin-top: 30px;
-      color: #1e90ff;
     }
+
+    /* Paragraphs */
     p {
       line-height: 1.6;
+      text-align: center;
     }
+
+    /* Links */
     a {
-      color: #1e90ff;
+      color: var(--accent-color);
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
     }
     a:hover {
       text-decoration: underline;
     }
+
+    /* Lists */
     ul {
       list-style-type: disc;
       margin-left: 20px;
@@ -128,7 +145,9 @@
     <h1>Welcome to BugBountyPOC Labs 🚀</h1>
     <p>Practice XSS Context Breaking, Business Logic Bugs, and More!</p>
     <p>Follow my tutorials on YouTube to learn ethical hacking and bug bounty step by step.</p>
-    <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="btn-labs">📺 Visit YouTube Channel</a>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank" class="btn-labs">📺 Visit YouTube Channel</a>
+    </div>
 
     <h2 id="labs">Labs Directory</h2>
     <ul>
