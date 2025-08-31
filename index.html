@@ -36,6 +36,9 @@
     margin: 0;
     padding: 0;
   }
+  nav ul li {
+    position: relative;
+  }
   nav ul li a {
     text-decoration: none;
     color: #111;
@@ -45,6 +48,31 @@
     transition: background 0.2s;
   }
   nav ul li a:hover {
+    background-color: #e0e0e0;
+  }
+
+  /* Dropdown */
+  nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 200px;
+    z-index: 100;
+  }
+  nav ul li:hover ul.dropdown {
+    display: block;
+  }
+  nav ul li ul.dropdown li a {
+    display: block;
+    padding: 8px 12px;
+  }
+  nav ul li ul.dropdown li a:hover {
     background-color: #e0e0e0;
   }
 
@@ -77,18 +105,18 @@
     background-color: #333;
   }
 
-  /* About Section */
-  .about, .benefits, .cta {
+  /* Sections */
+  section {
     max-width: 900px;
     margin: 40px auto;
     text-align: center;
     padding: 0 20px;
   }
-  .about h2, .benefits h2, .cta h2 {
+  section h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
   }
-  .about p, .benefits ul, .cta p {
+  section p, section ul {
     font-size: 1rem;
     line-height: 1.5;
   }
@@ -110,31 +138,6 @@
     left: 0;
   }
 
-  /* YouTube Section */
-  .youtube-section {
-    max-width: 900px;
-    margin: 40px auto;
-    text-align: center;
-    padding: 0 20px;
-  }
-  .youtube-section h2 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-  }
-  .youtube-section a {
-    display: inline-block;
-    background-color: #111;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.2s;
-  }
-  .youtube-section a:hover {
-    background-color: #333;
-  }
-
   /* Mobile responsive */
   @media (max-width: 600px) {
     nav {
@@ -146,6 +149,12 @@
       gap: 10px;
       margin-top: 10px;
     }
+    nav ul li ul.dropdown {
+      position: relative;
+      top: 0;
+      left: 0;
+      border: none;
+    }
   }
 </style>
 </head>
@@ -156,6 +165,16 @@
   <div class="logo">BugBountyPOC</div>
   <ul>
     <li><a href="#">Home</a></li>
+    <li>
+      <a href="#">Labs ▾</a>
+      <ul class="dropdown">
+        <li><a href="labs/xss-context-reflection/index.html">XSS - HTML Content</a></li>
+        <li><a href="labs/xss-attribute-context/index.html">XSS - Attribute</a></li>
+        <li><a href="labs/xss-js-context/index.html">XSS - JavaScript</a></li>
+        <li><a href="labs/xss-dom-context/index.html">XSS - DOM / URL</a></li>
+        <li><a href="labs/business-logic/index.html">Business Logic</a></li>
+      </ul>
+    </li>
     <li><a href="mailto:youremail@example.com">Contact</a></li>
     <li><a href="https://www.youtube.com/@networkterminatorsecurity" target="_blank">YouTube</a></li>
   </ul>
